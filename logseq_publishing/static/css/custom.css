@@ -19,8 +19,8 @@ html[data-theme=dark] {
     --ls-secondary-text-color: #dbd7d5;
     --ls-link-text-color: #8ABBBB;
     --ls-link-text-hover-color: #eb8e77;
-    --ls-link-ref-text-color: #79b990;
-    --ls-link-ref-text-hover-color: #93cea9;
+    --ls-link-ref-text-color: #BF8F5C;
+    --ls-link-ref-text-hover-color: #C25A28;
     --ls-tag-text-color: var(--ls-link-text-color);
     --ls-tag-text-hover-color: var(--ls-link-text-hover-color);
     --ls-slide-background-color: var(--ls-primary-background-color);
@@ -34,7 +34,7 @@ html[data-theme=dark] {
     --ls-page-blockquote-bg-color: #1d1614;
     --ls-page-blockquote-border-color: #F0B752;
     --ls-page-inline-code-color: var(--ls-primary-text-color);
-    --ls-page-inline-code-bg-color: #1b1715;
+    --ls-page-inline-code-bg-color: #666463;
     --ls-scrollbar-foreground-color: rgba(255, 255, 255, 0.05);
     --ls-scrollbar-background-color: rgba(40, 44, 52, 0.9);
     --ls-scrollbar-thumb-hover-color: rgba(255, 255, 255, 0.2);
@@ -167,6 +167,51 @@ html[data-theme=dark] {
     display: inline;
    }
 
+/* css columns view for child blocks by cannibalox v20210220 */
+/* use: inline tag #kanban, #kanban-small or #kanban-wXXX    */
+/* try:  #kanban-w200,#kanban-w300, #kanban-w400             */
+
+div[data-refs-self*="kanban"] > .block-children {
+	display: inline-flex;
+	position: relative;
+	overflow-x: auto;
+	overflow-y: hidden;
+	margin: 10px;
+	}
+div[data-refs-self*="kanban"] >.block-children > div {
+	display: inline-block;
+	width: 400px;
+	padding-right: 3px;
+	}
+
+/* #kanbansmall : smaller font with hover zoom */
+div[data-refs-self*="kanban-small"] > .block-children .block-content {
+	font-size: 11px;
+	font-weight: 300;
+}
+div[data-refs-self*="kanban-small"] > .block-children .block-content:hover {
+	font-size: 14px !important;
+	min-width: 100px;
+	margin: 0 10px;
+}
+/* #kanban-w[100-300] : force width of the columns */
+div[data-refs-self*="kanban-w100"] > .block-children .block-content {
+	width:100px;
+}
+div[data-refs-self*="kanban-w200"] > .block-children .block-content {
+	width:200px;
+}
+div[data-refs-self*="kanban-w300"] > .block-children .block-content {
+	width:300px;
+}
+div[data-refs-self*="kanban-w300"] > .block-children {
+	border: 1px solid var(--ls-block-bullet-border-color);
+	padding: 10px 0;
+}
+div[data-refs-self*="kanban-w400"] > .block-children .block-content {
+	width:380px;
+}
+
 /* === external links ====*/ 
     a.external-link {border-bottom: 0px;}
     a.external-link:after {
@@ -273,7 +318,7 @@ a.tag {
 }
 
 .dark-theme ::selection {
-    background: #0865D6;
+    background: #4F74A1;
     color: #c4b2a6;
 }
 
