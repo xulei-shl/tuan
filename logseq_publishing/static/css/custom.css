@@ -1,61 +1,55 @@
-/***************************************************************
-****************************************************************
-****************************************************************
-************************ DARK - COFFEE *************************
-****************************************************************
-****************************************************************
-***************************************************************/
+/************************ DARK - xulei *************************/
 
 .dark-theme,
 html[data-theme=dark] {
-    --ls-primary-background-color: #211c1b;
-    --ls-secondary-background-color: #27211f;
-    --ls-tertiary-background-color: #2b2524;
-    --ls-quaternary-background-color: #362f2e;
+    --ls-primary-background-color: #282C34;
+    --ls-secondary-background-color: #32353D;
+    --ls-tertiary-background-color: #343A3F;
+    --ls-quaternary-background-color: #9EA1A1;
     --ls-table-tr-even-background-color: #362f2e;
     --ls-active-primary-color: #c28eaa;
     --ls-active-secondary-color: #e8d0dc;
     --ls-block-properties-background-color: var(--ls-secondary-background-color);
     --ls-block-ref-link-text-color: #b9543b;
     --ls-search-background-color: var(--ls-primary-background-color);
-    --ls-border-color: #473134;
-    --ls-guideline-color: #2f2928;
+    --ls-border-color: #0B4A5A;
+    --ls-guideline-color: #0B4A5A;
     --ls-menu-hover-color: var(--ls-secondary-background-color);
-    --ls-primary-text-color: #9e836d;
+    --ls-primary-text-color: #bababb;
     --ls-secondary-text-color: #dbd7d5;
-    --ls-title-text-color: #9e836d;
-    --ls-link-text-color: #dd745b;
+    --ls-link-text-color: #8ABBBB;
     --ls-link-text-hover-color: #eb8e77;
     --ls-link-ref-text-color: #79b990;
     --ls-link-ref-text-hover-color: #93cea9;
     --ls-tag-text-color: var(--ls-link-text-color);
     --ls-tag-text-hover-color: var(--ls-link-text-hover-color);
     --ls-slide-background-color: var(--ls-primary-background-color);
-    --ls-block-bullet-border-color: #61554d;
-    --ls-block-bullet-color: #423834;
+    --ls-block-bullet-border-color: #bababb;
+    --ls-block-bullet-color: #8D8D8F;
     --ls-block-highlight-color: #064645;
     --ls-selection-background-color: #AB3641;
     --ls-page-checkbox-color: #935c62;
-    --ls-page-checkbox-border-color: var(--ls-primary-background-color);
+    --ls-page-checkbox-border-color: var(--ls-primary-background-color);  
     --ls-page-blockquote-color: var(--ls-primary-text-color);
     --ls-page-blockquote-bg-color: #1d1614;
-    --ls-page-blockquote-border-color: #3c2629;
+    --ls-page-blockquote-border-color: #F0B752;
     --ls-page-inline-code-color: var(--ls-primary-text-color);
     --ls-page-inline-code-bg-color: #1b1715;
     --ls-scrollbar-foreground-color: rgba(255, 255, 255, 0.05);
-    --ls-scrollbar-background-color: rgba(67, 30, 41, 0.9);
+    --ls-scrollbar-background-color: rgba(40, 44, 52, 0.9);
     --ls-scrollbar-thumb-hover-color: rgba(255, 255, 255, 0.2);
-    --ls-head-text-color: #9e836d;
-    --ls-icon-color: var(--ls-quaternary-background-color);
-    --ls-search-icon-color: var(--ls-quaternary-background-color);
-    --ls-a-chosen-bg: var(--ls-secondary-background-color);
-    --ls-right-sidebar-code-bg-color: #3c041f;
+    --ls-icon-color: #8ABBBB;
+    --ls-search-icon-color: #8ABBBB;
+    --ls-a-chosen-bg: var(--ls-quaternary-background-color);
+    --ls-head-text-color: #9e836d;  
+    --ls-right-sidebar-code-bg-color: #282C34;
     --color-level-1: var(--ls-secondary-background-color);
     --color-level-2: var(--ls-tertiary-background-color);
     --color-level-3: var(--ls-quaternary-background-color);
     --color-level-4: #632f46;
     --color-level-5: #865673;
     --color-level-6: #9e6889;
+    --bgcolor-alt2: #70998F;  
 }
 
 
@@ -67,11 +61,11 @@ html[data-theme=dark] {
 /* gradient on top for aesthetics */
 
 .dark-theme .cp__sidebar-main-content:before {
-    background: linear-gradient(to bottom, rgba(33, 28, 27, .7) 0%, rgba(33, 28, 27, 0) 100%);
+    background: linear-gradient(to bottom, rgba(46, 50, 59, .7) 0%, rgba(46, 50, 59, 0) 100%);
 }
 
 .dark-theme .cp__sidebar-main-content:after {
-    background: linear-gradient(to top, rgba(33, 28, 27, .7) 0%, rgba(33, 28, 27, 0) 100%);
+    background: linear-gradient(to top, rgba(46, 50, 59, .7) 0%, rgba(46, 50, 59, 0) 100%);
 }
 
 
@@ -91,7 +85,7 @@ html[data-theme=dark] {
 /* search-field */
 
 .dark-theme #search_field {
-    background: linear-gradient(to right, rgba(39, 33, 33, 1) 0%, rgba(39, 33, 33, .7) 200px, rgba(39, 33, 33, 0) 100%);
+    background: linear-gradient(to right, rgba(46, 50, 59, 1) 0%, rgba(40, 44, 52, .7) 200px, rgba(40, 44, 52, 0) 100%);
     transition: background .3s;
 }
 
@@ -144,14 +138,82 @@ html[data-theme=dark] {
     opacity: .5;
 }
 
+/*--- highlight tree lines ---*/
+/*--- tweak left: and top: offset to match yout theme */
+.blocks-container > div:not(:first-child) .ls-block:focus-within > div:first-child .bullet:before{
+    content : "└─";
+    color:#f00;
+    display: inline-block;
+    left: -24px;
+    top: -6px;
+    width: 30px;
+    position: relative;
+}
+.ls-block > .block-children:focus-within {
+    border-left-color:#f00;
+}
+
+/* == query block 检索块(自用版本) == */
+.custom-query {
+    background-color: var(--ls-secondary-background-color);
+    padding: .0rem .75rem .2rem .75rem;
+    margin: 0;
+    width: 100%;
+   }
+
+.custom-query .opacity-70::before {
+    content: "检索式: ";
+    color: #efb752;
+    display: inline;
+   }
+
+/* === external links ====*/ 
+    a.external-link {border-bottom: 0px;}
+    a.external-link:after {
+        display:inline-block;
+        content:"";
+        width: 21px;
+        height:16px;
+        background: 
+            transparent
+            50% 200%/54% 
+            url('https://svgshare.com/i/SWJ.svg') no-repeat;        
+        filter: invert(3%) sepia(100%) saturate(1920%) hue-rotate(0deg) brightness(1419%) contrast(249%);
+    }
+
+a.tag {
+    opacity: 0.92;
+	color: #FF79C6 !important;
+}
+
+/* === 修改主编辑区域的界面宽度 ===*/
+.white-theme {
+  --ls-main-content-max-width: 750px;
+}
+
+.dark-theme {
+  --ls-main-content-max-width: 750px;
+}
+
+/* === checkboxes ===*/
+.form-checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    background-origin: border-box;
+    user-select: none;
+    flex-shrink: 0;
+    height: 1rem;
+    width: 1rem;
+    border-color: #98981b; !important;
+	background-color: var(--bgcolor-alt2) !important;
+    border-width: 1px;
+    border-radius: 50%;
+}
+
 
 /* block reference */
 
-.dark-theme .block-ref {
-    background: rgba(121, 94, 110, .5);
-    color: #e0d8cb;
-    border-bottom-color: rgba(121, 85, 106, .5);
-}
+
 
 
 /* selected block or higlighted page link */
@@ -176,11 +238,11 @@ html[data-theme=dark] {
 
 .dark-theme .marker-switch {
     color: #000;
-    background: #52373a;
+    background: #70998F;
 }
 
 .dark-theme .marker-switch:hover {
-    background: #5d3e41;
+    background: #4D4747;
 }
 
 
@@ -189,7 +251,7 @@ html[data-theme=dark] {
 ***************************************************************/
 
 .dark-theme .cp__right-sidebar.is-open {
-    background: rgba(97, 67, 55, .05);
+    background: rgba(46, 50, 59, .05);
 }
 
 
@@ -201,7 +263,7 @@ html[data-theme=dark] {
 /* dotted bg */
 
 .dark-theme #app-container {
-    background-image: radial-gradient(#423019 5%, #211c1b 5%);
+    background-image: radial-gradient(#423019 5%, #282C34 5%);
     background-position: 0 0;
     background-size: 25px 25px;
 }
@@ -211,7 +273,7 @@ html[data-theme=dark] {
 }
 
 .dark-theme ::selection {
-    background: #69b6a7;
+    background: #0865D6;
     color: #c4b2a6;
 }
 
