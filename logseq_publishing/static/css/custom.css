@@ -9,7 +9,6 @@ html[data-theme=dark] {
     --ls-table-tr-even-background-color: #362f2e;
     --ls-active-primary-color: #c28eaa;
     --ls-active-secondary-color: #e8d0dc;
-    --ls-block-properties-background-color: var(--ls-secondary-background-color);
     --ls-block-ref-link-text-color: #b9543b;
     --ls-search-background-color: var(--ls-primary-background-color);
     --ls-border-color: #0B4A5A;
@@ -31,7 +30,7 @@ html[data-theme=dark] {
     --ls-page-checkbox-color: #935c62;
     --ls-page-checkbox-border-color: var(--ls-primary-background-color);  
     --ls-page-blockquote-color: var(--ls-primary-text-color);
-    --ls-page-blockquote-bg-color: #1d1614;
+    --ls-page-blockquote-bg-color: #353840;
     --ls-page-blockquote-border-color: #F0B752;
     --ls-page-inline-code-color: var(--ls-primary-text-color);
     --ls-page-inline-code-bg-color: #666463;
@@ -111,6 +110,7 @@ html[data-theme=dark] {
 .dark-theme mark {
     background: #196755;
     color: #e0d3c9;
+  	font-size: 16px;
 }
 
 
@@ -138,34 +138,69 @@ html[data-theme=dark] {
     opacity: .5;
 }
 
-/*--- highlight tree lines ---*/
-/*--- tweak left: and top: offset to match yout theme */
-.blocks-container > div:not(:first-child) .ls-block:focus-within > div:first-child .bullet:before{
-    content : "└─";
-    color:#f00;
-    display: inline-block;
-    left: -24px;
-    top: -6px;
-    width: 30px;
-    position: relative;
+.ls-block .done {
+    opacity:0.6;
 }
-.ls-block > .block-children:focus-within {
-    border-left-color:#f00;
+
+
+
+/*==================================================*/
+/* === highlight current path by cannnibalox v0.1 ===*/
+/*==================================================*/
+
+.ls-block .bullet {
+  background-color: #f09517;
 }
+
+.block-editor{
+    opacity:1;
+    filter: contrast(1) grayscale(0%);
+    color: #f09517;
+    }
+
+.ls-block:focus-within{
+    opacity:1;
+    filter: grayscale(0%);
+    color: #efdc5d;
+    }  
+
+.ls-block:not(:focus-within) > div:first-child .bullet {
+  background-color: var(--ls-block-bullet-color);
+}
+
+.ls-block:not(:focus-within){
+    color: var(--ls-primary-text-color);
+    } 
+
+
+/*==================================================*/
+/* == block properties == */
+/*==================================================*/
+.blocks-properties {
+  opacity: 0.4;
+  background-color: #42444A;
+  padding: .0rem .75rem .0rem .45rem;
+}
+.blocks-properties .my-1 b {
+
+}
+
 
 /* == query block 检索块(自用版本) == */
 .custom-query {
     background-color: var(--ls-secondary-background-color);
-    padding: .0rem .75rem .2rem .75rem;
+    opacity: 0.85; 
+  	padding: 0 0 0.5% 0;
     margin: 0;
     width: 100%;
+
    }
 
-.custom-query .opacity-70::before {
-    content: "检索式: ";
-    color: #efb752;
-    display: inline;
-   }
+.custom-query > .flex.flex-col {
+    border: 1.5px dashed;
+    border-color:#f5c5a7;  
+ 
+}
 
 /* css columns view for child blocks by cannibalox v20210220 */
 /* use: inline tag #kanban, #kanban-small or #kanban-wXXX    */
@@ -212,6 +247,137 @@ div[data-refs-self*="kanban-w400"] > .block-children .block-content {
 	width:380px;
 }
 
+/*------------ CUSTOM COLORS ------------------*/
+
+/*
+Title: Custom colors for Logseq
+Author:: @CatoMinor3
+Version:: 1
+Date:: February 6, 2021
+Support: 
+- Paypal: https://www.paypal.me/catominor3
+- Patreon: https://www.patreon.com/catominor
+How to use this? Simply write c:COLOR (see supported colors below) and follow it with 
+the highlighted text, bold text or iphasis. 
+*/
+
+/* ---------------- Roam colors -----------------*/
+
+/*Supporter colors:
+https://github.com/mrmrs/colors
+.purple紫色 { color: #533E7D; }
+.green绿 { color: #497D46; }
+.lightPurple浅紫 { color: #787F97; }
+.orange深橙 { color: #978626; }
+.purpleBlue紫蓝 { color: #49767B; }
+.blue { color: #264C9B; }
+.red酒红 { color: #793E3E; }
+*/
+.tag[href*="/c-"] {
+    	display:none !important;  
+}
+
+.tag[href*="/c-"] + mark, 
+.tag[href*="/c-"] + .page-reference > .page-ref {
+    color: white !important;
+	border-radius: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-weight: bold;
+}
+
+.tag[href*="/c-blue"] + mark,
+.tag[href*="/c-blue"] + .page-reference > .page-ref {
+	background-color: #264C9B !important;
+}
+
+
+.tag[href*="/c-blue"] + i, 
+.tag[href*="/c-blue"] + b {
+    color: #264C9B;
+    
+}
+
+.tag[href*="/c-purpleBlue"] + mark,
+.tag[href*="/c-purpleBlue"] + .page-reference > .page-ref {
+	background-color: #49767B !important;
+}
+
+.tag[href*="/c-purpleBlue"] + i, 
+.tag[href*="/c-purpleBlue"] + b {
+    color: #49767B;
+    
+}
+
+.tag[href*="/c-lightPurple"] + mark,
+.tag[href*="/c-lightPurple"] + .page-reference > .page-ref {
+	background-color: #787F97 !important;
+}
+
+
+.tag[href*="/c-lightPurple"] + i,
+.tag[href*="/c-lightPurple"] + b {
+    color: #787F97;
+    
+}
+
+
+.tag[href*="/c-green"] + mark,
+.tag[href*="/c-green"] + .page-reference > .page-ref {
+	background-color: #497D46 !important;
+}
+
+.tag[href*="/c-green"] + i,
+.tag[href*="/c-green"] + b {
+    color: #497D46;
+    
+}
+
+
+.tag[href*="/c-orange"] + mark,
+.tag[href*="/c-orange"] + .page-reference > .page-ref {
+
+	background-color: #978626 !important;
+
+}
+
+.tag[href*="/c-orange"] + i,
+.tag[href*="/c-orange"] + b {
+    color: #978626;
+    
+}
+
+
+.tag[href*="/c-red"] + mark,
+.tag[href*="/c-red"] + .page-reference > .page-ref {
+
+	background-color: #793E3E !important;
+
+}
+
+.tag[href*="/c-red"] + i,
+.tag[href*="/c-red"] + b
+{
+    color: #793E3E;
+    
+}
+
+
+
+.tag[href*="/c-purple"] + mark,
+.tag[href*="/c-purple"] + .page-reference > .page-ref {
+
+	background-color: #533E7D !important;
+
+}
+
+.tag[href*="/c-purple"] + i,
+.tag[href*="/c-purple"] + b {
+    
+    color: #533E7D;
+}
+
+
 /* === external links ====*/ 
     a.external-link {border-bottom: 0px;}
     a.external-link:after {
@@ -227,8 +393,9 @@ div[data-refs-self*="kanban-w400"] > .block-children .block-content {
     }
 
 a.tag {
-    opacity: 0.92;
-	color: #FF79C6 !important;
+  	opacity: 0.92;
+	color: #FF79C6 !important;	
+  	font-size: 16px;
 }
 
 /* === 修改主编辑区域的界面宽度 ===*/
@@ -239,6 +406,70 @@ a.tag {
 .dark-theme {
   --ls-main-content-max-width: 750px;
 }
+
+
+#contents span.opacity-50 {
+    opacity: 0;
+}
+
+#contents .logseq-tools-calendar h2 {
+    margin-top: -25px;
+}
+
+.logseq-tools-multiple-calendars {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 15px;
+}
+
+:not(#contents) .logseq-tools-multiple-calendars .logseq-tools-calendar {
+    flex: 0 50%;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+.logseq-tools-calendar tr {
+    background: none !important;
+}
+
+.logseq-tools-calendar th,
+.logseq-tools-calendar td,
+.logseq-tools-calendar tr {
+    border: none;
+}
+
+.logseq-tools-calendar th,
+.logseq-tools-calendar td {
+    text-align: center;
+}
+
+
+/* pages from other months */
+
+.logseq-tools-calendar .outofmonth {
+    opacity: .3;
+}
+
+.logseq-tools-calendar .today {
+    font-weight: 900;
+    color: var(--ls-link-text-color);
+}
+
+.logseq-tools-calendar .page-exists {
+    border-bottom: 1px solid var(--ls-link-ref-text-color);
+}
+
+.logseq-tools-calendar .today.page-exists {
+    border-bottom-color: var(--ls-link-text-color);
+}
+
+
+/* if you want to add different styling for pages that not exists yet */
+
+.logseq-tools-calendar .page-ref:not(.page-exists):not(.today) {
+    /* color: violet; */
+}
+    
 
 /* === checkboxes ===*/
 .form-checkbox {
