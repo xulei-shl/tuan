@@ -5,12 +5,12 @@ html[data-theme=dark] {
     --ls-primary-background-color: #282C34;
     --ls-secondary-background-color: #32353D;
     --ls-tertiary-background-color: #343A3F;
-    --ls-quaternary-background-color: #9EA1A1;
+    --ls-quaternary-background-color: #4e6053;
     --ls-table-tr-even-background-color: #362f2e;
     --ls-active-primary-color: #c28eaa;
     --ls-active-secondary-color: #e8d0dc;
-    --ls-block-ref-link-text-color: #b9543b;
-    --ls-search-background-color: var(--ls-primary-background-color);
+    --ls-block-ref-link-text-color: #C9B57A;
+    --ls-search-background-color:  var(--ls-primary-background-color);
     --ls-border-color: #0B4A5A;
     --ls-guideline-color: #0B4A5A;
     --ls-menu-hover-color: var(--ls-secondary-background-color);
@@ -49,6 +49,7 @@ html[data-theme=dark] {
     --color-level-5: #865673;
     --color-level-6: #9e6889;
     --bgcolor-alt2: #70998F;  
+    --ls-a-chosen-bg: #4e6053;  
 }
 
 
@@ -80,18 +81,21 @@ html[data-theme=dark] {
     background: var(--ls-secondary-background-color);
 }
 
-
 /* search-field */
 
 .dark-theme #search_field {
-    background: linear-gradient(to right, rgba(46, 50, 59, 1) 0%, rgba(40, 44, 52, .7) 200px, rgba(40, 44, 52, 0) 100%);
+    background: linear-gradient(to right, rgba(24, 24, 24, 1) 0%, rgba(24, 24, 24, .7) 200px, rgba(24, 24, 24, 0) 100%);
     transition: background .3s;
+ 	width: 600px;  
 }
 
 .dark-theme #search_field:focus {
-    box-shadow: 0px 0px 20px 0px rgba(27, 22, 22, 0.8);
+    box-shadow: 0px 0px 20px 0px rgba(18, 18, 18, .8);
 }
 
+a.chosen {
+  font-weight: bold;
+}
 
 /***************************************************************
 ************************** MAIN AREA ***************************
@@ -142,6 +146,17 @@ html[data-theme=dark] {
     opacity:0.6;
 }
 
+/*==================================================*/
+/* == block ref == */
+/*==================================================*/
+.block-ref {
+  color: var(--ls-block-ref-link-text-color);
+  padding-bottom: 0px;
+  border-bottom: -0px solid;
+  border-bottom-color: var(--ls-block-ref-link-text-color);
+  cursor: alias;
+  text-decoration: underline;
+}
 
 
 /*==================================================*/
@@ -149,28 +164,24 @@ html[data-theme=dark] {
 /*==================================================*/
 
 .ls-block .bullet {
-  background-color: #f09517;
+  background-color: #12718A;
 }
-
-.block-editor{
-    opacity:1;
-    filter: contrast(1) grayscale(0%);
-    color: #f09517;
-    }
 
 .ls-block:focus-within{
-    opacity:1;
-    filter: grayscale(0%);
-    color: #efdc5d;
+    color: #EFB752;
     }  
 
-.ls-block:not(:focus-within) > div:first-child .bullet {
-  background-color: var(--ls-block-bullet-color);
-}
+.block-editor{
+    color: var(--ls-primary-text-color);
+    } 
 
 .ls-block:not(:focus-within){
     color: var(--ls-primary-text-color);
     } 
+
+.ls-block:not(:focus-within) > div:first-child .bullet {
+  background-color: var(--ls-block-bullet-color);
+}
 
 
 /*==================================================*/
@@ -181,10 +192,6 @@ html[data-theme=dark] {
   background-color: #42444A;
   padding: .0rem .75rem .0rem .45rem;
 }
-.blocks-properties .my-1 b {
-
-}
-
 
 /* == query block 检索块(自用版本) == */
 .custom-query {
@@ -247,6 +254,36 @@ div[data-refs-self*="kanban-w400"] > .block-children .block-content {
 	width:380px;
 }
 
+/* ---------------- 标题 -----------------*/
+
+.tag[href*="/h-"] {
+    	display:none !important;  
+}
+
+.tag[href*="/h-h2"] + mark, 
+.tag[href*="/h-h2"] + .page-reference > .page-ref {
+    color: #EFB752 !important;
+	font-weight: bold;
+  	font-size: 22px;
+	background-color: transparent !important;
+}
+
+.tag[href*="/h-h3"] + mark, 
+.tag[href*="/h-h3"] + .page-reference > .page-ref {
+    color: #EFB752 !important;
+	font-weight: bold;
+  	font-size: 20px;
+	background-color: transparent !important;
+}
+
+.tag[href*="/h-h4"] + mark, 
+.tag[href*="/h-h4"] + .page-reference > .page-ref {
+    color: #EFB752 !important;
+	font-weight: bold;
+  	font-size: 18px;
+	background-color: transparent !important;
+}
+
 /*------------ CUSTOM COLORS ------------------*/
 
 /*
@@ -273,6 +310,8 @@ https://github.com/mrmrs/colors
 .blue { color: #264C9B; }
 .red酒红 { color: #793E3E; }
 */
+
+
 .tag[href*="/c-"] {
     	display:none !important;  
 }
@@ -290,6 +329,7 @@ https://github.com/mrmrs/colors
 .tag[href*="/c-blue"] + .page-reference > .page-ref {
 	background-color: #264C9B !important;
 }
+
 
 
 .tag[href*="/c-blue"] + i, 
