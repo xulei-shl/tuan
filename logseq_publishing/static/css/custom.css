@@ -242,19 +242,51 @@ a.chosen {
  
 }
 
+/*==== logseq-bars v20210304 start ====== */
+/* resets tag style 进度条 */
+a[data-ref*=bar-].tag {
+    font-size: 0;
+    padding: 0;
+    border: none;
+    margin: 0;
+    height: 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+a[data-ref*=bar].tag:before {
+    content: "";
+    height: 6px;
+    display: inline-block;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, #048cb2 20px, #00ff62 40px, #fffc5f 60px, #ffb922 80px, red 100px);
+}
+    a[data-ref*=flatbar].tag:before {background:red;}
+    a[data-ref*=bar-00].tag:before {width: 1px;}
+    a[data-ref*=bar-10].tag:before {width: 10px;}
+    a[data-ref*=bar-20].tag:before {width: 20px;}
+    a[data-ref*=bar-30].tag:before {width: 30px;}
+    a[data-ref*=bar-40].tag:before {width: 40px;}
+    a[data-ref*=bar-50].tag:before {width: 50px;}        
+    a[data-ref*=bar-60].tag:before {width: 60px;}
+    a[data-ref*=bar-70].tag:before {width: 70px;}
+    a[data-ref*=bar-80].tag:before {width: 80px;}
+	a[data-ref*=bar-90].tag:before {width: 90px;}
+	a[data-ref*=bar-100].tag:before {width: 100px;}
+
+
 
 /* css columns view for child blocks by cannibalox v20210220 */
 /* use: inline tag #kanban, #kanban-small or #kanban-wXXX    */
 /* try:  #kanban-w200,#kanban-w300, #kanban-w400             */
 
-div[data-refs-self*="kanban"] > .block-children {
+div[data-refs-self*="c-kanban"] > .block-children {
 	display: inline-flex;
 	position: relative;
 	overflow-x: auto;
 	overflow-y: hidden;
 	margin: 10px;
 	}
-div[data-refs-self*="kanban"] >.block-children > div {
+div[data-refs-self*="c-kanban"] >.block-children > div {
 	display: inline-block;
 	width: 400px;
 	padding-right: 3px;
